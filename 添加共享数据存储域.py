@@ -5,10 +5,10 @@ from selenium.webdriver.support.wait import WebDriverWait
 from Test_cDesktop import Test_cDesktop
 
 url = "https://192.168.8.170/mcvdi-center/"
-# ISO存储域参数
-name = "iso"
-storage = "ISO / NFS"
-iso_path = "192.168.8.240:/mnt/hdd/datadomain/isos"
+# 存储域名参数
+name = "mcos"
+storage = "Data / NFS"
+mcos_path = "192.168.8.240:/mnt/hdd/datadomain/mcos"
 
 driver = webdriver.Firefox()
 test_df = Test_cDesktop(driver, url)
@@ -22,7 +22,6 @@ element1 = WebDriverWait(driver, 5).until(
     lambda drive: driver.find_element_by_xpath(".//*[@id='MainTabStorageView_table_NewDomain']"))
 print "打开存储页面"
 
-test_df.add_storage(driver, name, storage, iso_path)
+test_df.add_storage(driver, name, storage, mcos_path)
 
-# 关闭浏览器
 test_df.teardown(driver)
